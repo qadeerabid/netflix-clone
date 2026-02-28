@@ -1,11 +1,12 @@
 import { SignupForm } from '@/components/auth/SignupForm';
+import { HERO_BACKGROUND_IMAGE } from '@/constants';
 
 export default function SignupPage() {
   return (
     <div
       className="relative min-h-screen flex items-center justify-center px-4"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url(https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e5-f008e353e0eb/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_large.jpg)',
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url(${HERO_BACKGROUND_IMAGE})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

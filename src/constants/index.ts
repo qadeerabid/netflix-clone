@@ -1,4 +1,5 @@
 export const TMDB_BASE_URL = process.env.NEXT_PUBLIC_TMDB_BASE_URL || 'https://api.themoviedb.org/3';
+export const HERO_BACKGROUND_IMAGE = 'https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e5-f008e353e0eb/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_large.jpg';
 export const TMDB_IMAGE_BASE_URL = process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_URL || 'https://image.tmdb.org/t/p';
 export const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY || '';
 

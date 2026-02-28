@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Accordion } from '@/components/ui/Accordion';
 import { Footer } from '@/components/layout/Footer';
-import { ROUTES } from '@/constants';
+import { ROUTES, HERO_BACKGROUND_IMAGE } from '@/constants';
 
 const FAQ_ITEMS = [
   {
@@ -59,7 +59,7 @@ export default function LandingPage() {
       <section
         className="relative min-h-screen flex flex-col items-center justify-center text-center px-4"
         style={{
-          backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e5-f008e353e0eb/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_large.jpg)',
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(${HERO_BACKGROUND_IMAGE})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

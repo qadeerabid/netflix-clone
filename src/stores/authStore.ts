@@ -14,9 +14,11 @@ interface AuthState {
   signUp: (email: string, password: string, name?: string) => Promise<void>;
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 /**
  * Demo-only authentication store. In a real application, this should
- * connect to a secure backend. Any email/password combination will succeed.
+ * connect to a secure backend with proper credential verification.
  */
 export const useAuthStore = create<AuthState>()(
   persist(
@@ -24,7 +26,9 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       isAuthenticated: false,
       isLoading: false,
-      signIn: async (email: string, _password: string) => {
+      signIn: async (email: string, password: string) => {
+        if (!EMAIL_REGEX.test(email)) throw new Error('Invalid email format');
+        if (password.length < 4) throw new Error('Password must be at least 4 characters');
         set({ isLoading: true });
         await new Promise((r) => setTimeout(r, 800));
         const user: User = {
@@ -38,7 +42,9 @@ export const useAuthStore = create<AuthState>()(
       signOut: () => {
         set({ user: null, isAuthenticated: false });
       },
-      signUp: async (email: string, _password: string, name?: string) => {
+      signUp: async (email: string, password: string, name?: string) => {
+        if (!EMAIL_REGEX.test(email)) throw new Error('Invalid email format');
+        if (password.length < 4) throw new Error('Password must be at least 4 characters');
         set({ isLoading: true });
         await new Promise((r) => setTimeout(r, 800));
         const user: User = {
