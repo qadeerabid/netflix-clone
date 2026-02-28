@@ -3,6 +3,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { Profile } from '@/types';
+import { generateId } from '@/utils';
 
 interface ProfileState {
   profiles: Profile[];
@@ -23,7 +24,7 @@ export const useProfileStore = create<ProfileState>()(
       activeProfile: null,
       setActiveProfile: (profile) => set({ activeProfile: profile }),
       addProfile: (profile) => {
-        const newProfile: Profile = { ...profile, id: Math.random().toString(36).slice(2) };
+        const newProfile: Profile = { ...profile, id: generateId() };
         set((state) => ({ profiles: [...state.profiles, newProfile] }));
       },
       removeProfile: (id) => {
@@ -38,7 +39,7 @@ export const useProfileStore = create<ProfileState>()(
         const existing = get().profiles.filter((p) => p.userId === userId);
         if (existing.length === 0) {
           const defaultProfile: Profile = {
-            id: Math.random().toString(36).slice(2),
+            id: generateId(),
             name: 'Profile 1',
             avatar: 'A',
             color: DEFAULT_COLORS[0],

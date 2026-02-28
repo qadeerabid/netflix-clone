@@ -51,7 +51,7 @@ export function SignupForm() {
           type="password"
           placeholder="Password"
           error={errors.password?.message}
-          {...register('password', { required: 'Password is required', minLength: { value: 4, message: 'Min 4 characters' } })}
+          {...register('password', { required: 'Password is required', minLength: { value: 8, message: 'Min 8 characters' } })}
         />
         <Input
           type="password"

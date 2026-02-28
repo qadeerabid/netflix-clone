@@ -3,6 +3,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { User } from '@/types';
+import { generateId } from '@/utils';
 
 interface AuthState {
   user: User | null;
@@ -27,7 +28,7 @@ export const useAuthStore = create<AuthState>()(
         set({ isLoading: true });
         await new Promise((r) => setTimeout(r, 800));
         const user: User = {
-          id: Math.random().toString(36).slice(2),
+          id: generateId(),
           email,
           name: email.split('@')[0],
           createdAt: new Date().toISOString(),
@@ -41,7 +42,7 @@ export const useAuthStore = create<AuthState>()(
         set({ isLoading: true });
         await new Promise((r) => setTimeout(r, 800));
         const user: User = {
-          id: Math.random().toString(36).slice(2),
+          id: generateId(),
           email,
           name: name || email.split('@')[0],
           createdAt: new Date().toISOString(),
